@@ -6,6 +6,7 @@ export default class Select {
         this.labelElement = document.createElement('span')
         this.optionsCustomElement = document.createElement('ul')
         setupCustomElement(this)
+        element.style.display= "none"
         element.after(this.customElement)
     }
     get selectedOption() {
@@ -15,7 +16,7 @@ export default class Select {
 
 function setupCustomElement(select)  {
     select.customElement.classList.add('custom-select-container')
-
+    select.customElement.tabIndex = 0
     select.labelElement.classList.add('custom-select-value')
     select.labelElement.innerText = select.selectedOption.label
     select.customElement.append(select.labelElement)
